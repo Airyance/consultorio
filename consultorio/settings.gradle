@@ -1,5 +1,0 @@
-rootProject.name = 'consultorio'
-include 'dominio'
-include 'aplicacion'
-include 'infraestructura'
-
