@@ -1,0 +1,26 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.airyance'
+version = '0.0.1-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation project(path: ':dominio')
+    implementation project(path: ':aplicacion')
+    implementation 'org.springframework.boot:spring-boot-starter-web:latest.release'
+    implementation 'org.springframework.boot:spring-boot-starter:2.5.0'
+    implementation 'org.springframework.boot:spring-boot-starter-jdbc:latest.release'
+    implementation 'org.flywaydb:flyway-core:latest.release'
+    implementation 'org.projectlombok:lombok:latest.release'
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+test {
+    useJUnitPlatform()
+}
