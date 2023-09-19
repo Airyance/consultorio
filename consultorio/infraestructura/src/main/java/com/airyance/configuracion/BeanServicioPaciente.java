@@ -11,8 +11,8 @@ import org.springframework.context.annotation.Configuration;
 public class BeanServicioPaciente {
 
     @Bean
-    public ServicioCrearPaciente servicioCrearPaciente(RepositorioPaciente repositorioPaciente){
-        return new ServicioCrearPaciente(repositorioPaciente);
+    public ServicioCrearPaciente servicioCrearPaciente(RepositorioPaciente repositorioPaciente, DaoPaciente daoPaciente){
+        return new ServicioCrearPaciente(repositorioPaciente,daoPaciente);
     }
     @Bean
     public ServicioBuscarPaciente servicioBuscarPaciente(DaoPaciente daoPaciente){
