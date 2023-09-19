@@ -1,7 +1,7 @@
 package com.airyance.paciente.adaptador.repositorio;
 
 import com.airyance.paciente.modelo.Paciente;
-import com.airyance.paciente.puerto.RepositorioPaciente;
+import com.airyance.paciente.puerto.repositorio.RepositorioPaciente;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;

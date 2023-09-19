@@ -1,4 +1,4 @@
-package com.airyance.paciente.puerto;
+package com.airyance.paciente.puerto.repositorio;
 
 import com.airyance.paciente.modelo.Paciente;
 
