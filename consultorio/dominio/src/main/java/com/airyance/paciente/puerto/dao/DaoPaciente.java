@@ -2,6 +2,8 @@ package com.airyance.paciente.puerto.dao;
 
 import com.airyance.paciente.modelo.DtoPaciente;
 
+import java.util.List;
+
 public interface DaoPaciente {
 
     /**
@@ -11,4 +13,12 @@ public interface DaoPaciente {
      * @return paciente encontrado.
      */
     DtoPaciente buscarPacientePorIdentificacion (long identificacion);
+
+    /**
+     *
+     * Permite listar todos los pacientes registrados
+     *
+     * @return listado de pacientes
+     */
+    List<DtoPaciente> listarPacientes();
 }
