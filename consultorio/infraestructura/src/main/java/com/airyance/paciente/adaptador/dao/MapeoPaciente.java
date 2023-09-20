@@ -17,7 +17,11 @@ public class MapeoPaciente implements ResultSetExtractor<DtoPaciente> {
 
         if (rs.next()) {
 
-            LocalDate fechaNacimiento = LocalDate.parse(rs.getString("fecha_Nacimiento"));
+            LocalDate fechaNacimiento = null;
+
+            if (manejoDeFechas(rs)){
+                fechaNacimiento = LocalDate.parse(rs.getString("fecha_Nacimiento"));
+            }
 
             return new DtoPaciente(
                     rs.getInt("id"),
@@ -32,4 +36,13 @@ public class MapeoPaciente implements ResultSetExtractor<DtoPaciente> {
             return null;
         }
     }
+
+    private boolean manejoDeFechas(ResultSet rs) throws SQLException {
+
+        if (rs.getDate("fecha_Nacimiento")==null){
+            return false;
+        }
+        return true;
+    }
+
 }

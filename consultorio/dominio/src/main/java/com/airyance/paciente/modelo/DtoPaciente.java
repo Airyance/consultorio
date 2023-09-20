@@ -1,11 +1,15 @@
 package com.airyance.paciente.modelo;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class DtoPaciente {
 
     private int id;
@@ -16,14 +20,5 @@ public class DtoPaciente {
     private long identificacion;
     private long telefono;
 
-    public DtoPaciente(int id, String nombre, String apellidos, String direccion, LocalDate fechaNacimiento, long identificacion, long telefono) {
-        this.id = id;
-        this.nombre = nombre;
-        this.apellidos = apellidos;
-        this.direccion = direccion;
-        this.fechaNacimiento = fechaNacimiento;
-        this.identificacion = identificacion;
-        this.telefono = telefono;
-    }
 
 }

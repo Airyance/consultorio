@@ -1,7 +1,6 @@
 package com.airyance.paciente.servicio;
 
 import com.airyance.paciente.entidades.ConstructorPaciente;
-import com.airyance.paciente.modelo.DtoPaciente;
 import com.airyance.paciente.modelo.Paciente;
 import com.airyance.paciente.puerto.dao.DaoPaciente;
 import com.airyance.paciente.puerto.repositorio.RepositorioPaciente;
