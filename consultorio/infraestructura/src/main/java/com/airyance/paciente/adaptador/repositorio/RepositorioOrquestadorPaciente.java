@@ -12,6 +12,8 @@ public class RepositorioOrquestadorPaciente implements RepositorioPaciente {
 
     private String SQL_CREAR_PACIENTE= "INSERT INTO pacientes (nombre, apellidos, direccion, fecha_nacimiento, identificacion, " +
             "telefono) VALUES (:nombre, :apellidos, :direccion, :fechaNacimiento, :identificacion, :telefono);";
+    private String SQL_ACTUALIZAR_PACIENTE ="UPDATE pacientes SET nombre= :nombre, apellidos= :apellidos, direccion= :direccion, " +
+            "fecha_nacimiento= :fechaNacimiento, telefono= :telefono WHERE id= :id;";
     private final NamedParameterJdbcTemplate jdbcTemplate;
 
 
@@ -32,5 +34,20 @@ public class RepositorioOrquestadorPaciente implements RepositorioPaciente {
 
         return (long) jdbcTemplate.update(SQL_CREAR_PACIENTE,parametros);
     }
+
+    @Override
+    public Long actualizarPaciente(Paciente paciente, int id) {
+
+        MapSqlParameterSource parametros = new MapSqlParameterSource();
+        parametros.addValue("id",id);
+        parametros.addValue("nombre",paciente.getNombre());
+        parametros.addValue("apellidos",paciente.getApellidos());
+        parametros.addValue("direccion",paciente.getDireccion());
+        parametros.addValue("fechaNacimiento",paciente.getFechaNacimiento());
+        parametros.addValue("telefono",paciente.getTelefono());
+
+        return (long) jdbcTemplate.update(SQL_ACTUALIZAR_PACIENTE,parametros);
+    }
+
 
 }
