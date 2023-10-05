@@ -2,6 +2,7 @@ package com.airyance.configuracion;
 
 import com.airyance.paciente.puerto.dao.DaoPaciente;
 import com.airyance.paciente.puerto.repositorio.RepositorioPaciente;
+import com.airyance.paciente.servicio.ServicioActualizarPaciente;
 import com.airyance.paciente.servicio.ServicioBuscarPaciente;
 import com.airyance.paciente.servicio.ServicioCrearPaciente;
 import com.airyance.paciente.servicio.ServicioListarPacientes;
@@ -23,6 +24,12 @@ public class BeanServicioPaciente {
     @Bean
     public ServicioListarPacientes servicioListarPacientes(DaoPaciente daoPaciente){
         return new ServicioListarPacientes(daoPaciente);
+    }
+
+    @Bean
+    public ServicioActualizarPaciente servicioActualizarPaciente(ServicioBuscarPaciente servicioBuscarPaciente,
+                                                                 RepositorioPaciente repositorioPaciente){
+        return new ServicioActualizarPaciente(servicioBuscarPaciente,repositorioPaciente);
     }
 
 }

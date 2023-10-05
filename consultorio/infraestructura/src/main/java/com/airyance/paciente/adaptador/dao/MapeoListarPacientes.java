@@ -25,6 +25,7 @@ public class MapeoListarPacientes implements ResultSetExtractor<List<DtoPaciente
             }
 
 
+            paciente.setId(rs.getInt("id"));
             paciente.setNombre(rs.getString("nombre"));
             paciente.setApellidos(rs.getString("apellidos"));
             paciente.setDireccion(rs.getString("direccion"));

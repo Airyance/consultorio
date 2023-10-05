@@ -1,6 +1,7 @@
 package com.airyance.negocio.controladorExcepciones;
 
 import com.airyance.negocio.comando.ComandoRespuesta;
+import com.airyance.negocio.excepciones.ExcepcionInconsistenciaDatos;
 import com.airyance.negocio.excepciones.ExcepcionRegistroExistente;
 import com.airyance.negocio.excepciones.ExcepcionSinDatos;
 import org.springframework.http.HttpStatus;
@@ -21,6 +22,12 @@ public class OrquestadorExcepciones {
     public ResponseEntity<ComandoRespuesta> excepcionDatosExistentes (ExcepcionRegistroExistente excepcionRegistroExistente){
         ComandoRespuesta respuesta = ComandoRespuesta.builder().mensaje(excepcionRegistroExistente.getMessage()).build();
         return new ResponseEntity(respuesta, HttpStatus.CONFLICT);
+    }
+
+    @ExceptionHandler(value = ExcepcionInconsistenciaDatos.class)
+    public ResponseEntity<ComandoRespuesta> excepcionInconsistenciaDatos (ExcepcionInconsistenciaDatos excepcionInconsistenciaDatos){
+        ComandoRespuesta respuesta = ComandoRespuesta.builder().mensaje(excepcionInconsistenciaDatos.getMessage()).build();
+        return new ResponseEntity(respuesta,HttpStatus.NOT_ACCEPTABLE);
     }
 
 
